@@ -1,0 +1,12 @@
+[package]
+name = "october"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Pierre Marshall <pierre.marshall@gmail.com>"]
+license = "MIT-0"
+description = "Simple printable year calendar"
+
+[template]
+path = "template"
+entrypoint = "calendar.typ"
+# thumbnail = "thumbnail.png"
