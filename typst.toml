@@ -1,6 +1,6 @@
 [package]
 name = "october"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "template.typ"
 authors = ["Pierre Marshall <pierre.marshall@gmail.com>"]
 license = "MIT-0"

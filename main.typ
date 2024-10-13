@@ -1,3 +1,10 @@
-#import "calendar.typ":calendar
+#import "calendar.typ": calendar
 
-#show: calendar
+#set page(
+  "a4",
+  flipped: true,
+)
+
+#show: calendar.with(
+  year: datetime.today().year(),
+)
