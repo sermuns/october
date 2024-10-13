@@ -9,6 +9,7 @@ repository = "https://github.com/extua/october"
 categories = ["office"]
 keywords = ["calendar", "monthly", "schedule"]
 exclude = ["*.pdf"]
+compiler = "0.11.1"
 
 [template]
 path = "template"
