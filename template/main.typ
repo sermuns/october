@@ -1,3 +1,3 @@
-#import "calendar.typ":calendar
+#import "../calendar.typ":calendar
 
 #show: calendar
