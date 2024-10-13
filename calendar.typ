@@ -1,15 +1,17 @@
-#set page(
+#let calendar = {
+
+set page(
   "a4",
   flipped: true,
 )
 
-#set text(font: ("Inria Sans",))
+set text(font: ("Inria Sans",))
 
-#let year = {
+let year = {
   datetime.today().year()
 }
 
-#for month in range(1, 13) [
+for month in range(1, 13) [
 
   #let month_date = datetime(
     year: year,
@@ -29,39 +31,34 @@
 
   #align(center)[
     #heading(level: 1)[
-      #text(size: 27pt)[
-      	#month_date.display("[month repr:long]")
-      ]
-    ]
-  ]
+      #text(size: 27pt)[#month_date.display("[month repr:long] [year]")]]]
 
 
   #let first_monday = {
-    int(
-    monthly_days.first().display("[weekday repr:monday]")
-    )
+    int(monthly_days.first().display("[weekday repr:monday]"))
   }
 
-
+  #show table.cell.where(y: 0): strong
   #pad(
     y: 20pt,
     table(
       columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
-      rows: (1fr, 1fr, 1fr, 1fr, 1fr),
+      rows: (0.4fr, 1fr, 1fr, 1fr, 1fr, 1fr),
       inset: 12pt,
+      table.header(
+        [Monday]
+        ,[Tuesday]
+        ,[Wednesday]
+        ,[Thursday]
+        ,[Friday]
+        ,[Saturday]
+        ,[Sunday]
+      ),
       ..range(1, first_monday).map(empty_day => []),
-      ..monthly_days.map(
-      	day => [
-		#grid(
-		  columns: (2fr, 1fr),
-		  rows: (1fr, 2fr),
-		  align: center,
-		  gutter: 3pt,
-		  day.display("[weekday repr:long]"),
-		  day.display("[day padding:none]"),
-		)
-	      ]
-      )
-    ),
+      ..monthly_days.map(day => [
+        #day.display("[day padding:none]")
+      ])),
   )
+
 ]
+}
