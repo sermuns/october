@@ -27,7 +27,6 @@
       ]
     ]
 
-
     #let first_monday = {
       int(monthly_days.first().display("[weekday repr:monday]"))
     }
@@ -52,5 +51,7 @@
         ..monthly_days.map(day => [#day.display("[day padding:none]")])
       ),
     )
+    
+    #pagebreak()
   ]
 }
