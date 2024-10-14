@@ -13,5 +13,5 @@ compiler = "0.11.1"
 
 [template]
 path = "template"
-entrypoint = "calendar.typ"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
