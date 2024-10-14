@@ -22,7 +22,10 @@
 
     #align(center)[
       #heading(level: 1)[
-        #text(size: 27pt)[#month_date.display("[month repr:long] [year]")]]]
+        #text(size: 27pt)[#month_date.display("[month repr:long] [year]")
+        ]
+      ]
+    ]
 
 
     #let first_monday = {
@@ -46,10 +49,8 @@
           [Sunday],
         ),
         ..range(1, first_monday).map(empty_day => []),
-        ..monthly_days.map(day => [
-          #day.display("[day padding:none]")
-        ])),
+        ..monthly_days.map(day => [#day.display("[day padding:none]")])
+      ),
     )
-
   ]
 }
