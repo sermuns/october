@@ -51,7 +51,7 @@
         ..monthly_days.map(day => [#day.display("[day padding:none]")])
       ),
     )
-    
-    #pagebreak()
+
+    #pagebreak(weak: true)
   ]
 }
