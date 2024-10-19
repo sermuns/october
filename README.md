@@ -4,7 +4,7 @@ The calendar function accepts one parameter for the year, which should be format
 Otherwise, the current year can be passed in with `datetime.today().year()`.
 
 ```typst
- #show: calendar.with(
+#show: calendar.with(
   year: datetime.today().year()
 )
 ```
