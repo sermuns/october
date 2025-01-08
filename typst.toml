@@ -1,6 +1,6 @@
 [package]
 name = "october"
-version = "1.0.0"
+version = "1.0.0+2025"
 entrypoint = "calendar.typ"
 authors = ["Pierre Marshall <pierre.marshall@gmail.com>"]
 license = "MIT-0"
