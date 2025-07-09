@@ -1,7 +1,5 @@
 #let calendar(year: "", body) = {
   set document(title: str(year) + " calendar")
-  set page(margin: 2cm)
-  set text(lang: "sv")
 
   let month-names = (
     "Januari",
@@ -45,23 +43,30 @@
     }
 
     show table.cell.where(y: 0): strong
-    table(
-      columns: (1fr,) * 7,
-      rows: (0.4fr,) + 5 * (1fr,),
-      inset: 1em,
-      table.header(
-        [Måndag], [Tisdag], [Onsdag], [Torsdag], [Fredag], [Lördag], [Söndag]
+    pad(
+      bottom: 1cm,
+      table(
+        columns: (1fr,) * 7,
+        rows: (auto, 1fr),
+        inset: 1em,
+        table.header(
+          [Måndag], [Tisdag], [Onsdag], [Torsdag], [Fredag], [Lördag], [Söndag]
+        ),
+        ..range(1, first_monday).map(empty_day => []),
+        ..monthly_days.map(day => [#day.display("[day padding:none]")]),
       ),
-      ..range(1, first_monday).map(empty_day => []),
-      ..monthly_days.map(day => [#day.display("[day padding:none]")]),
     )
+    pagebreak(weak: true)
   }
 }
 
 #set page(
   "a4",
   flipped: true,
+  margin: 2cm,
 )
+#set text(font: "Libertinus Sans")
+#set par(spacing: .5em)
 
 #show: calendar.with(
   year: datetime.today().year(),
